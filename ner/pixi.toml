@@ -1,0 +1,16 @@
+[project]
+name = "ner"
+version = "0.1.0"
+description = "Add a short description here"
+authors = ["Moritz Wilksch <moritzwilksch@gmail.com>"]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tasks]
+
+[dependencies]
+python = ">=3.12.3,<3.13"
+ipykernel = "*"
+gliner = "*"
+pyinstrument = ">=4.6.2,<4.7"
+protobuf = ">=4.25.3,<4.26"

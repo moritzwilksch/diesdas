@@ -3,15 +3,21 @@ name = "diesdas"
 version = "0.1.0"
 description = "Add a short description here"
 authors = ["Moritz Wilksch <moritz.wilksch@quantco.com>"]
-channels = ["conda-forge"]
-platforms = ["osx-arm64"]
+channels = ["pytorch", "conda-forge"]
+platforms = ["linux-64"]
 
 [tasks]
 
 [dependencies]
-python = ">=3.12.2,<3.13"
+python = ">=3.11,<3.12"
 numpy = ">=1.26.4,<1.27"
-polars = ">=0.20.19,<0.21"
+polars = ">=0.20.21,<0.21"
+torchtext = ">=0.17.2,<0.18"
+sqlalchemy = ">=2.0.29,<2.1"
+python-duckdb = ">=0.10.1,<0.11"
+pyarrow = ">=15.0.2,<15.1"
+ipykernel = ">=6.29.3,<6.30"
+pyinstrument = ">=4.6.2,<4.7"
 
 [feature.dev.dependencies]
 pyright = ">=1.1.358,<1.2"
@@ -19,8 +25,18 @@ ruff = ">=0.3.5,<0.4"
 ruff-lsp = ">=0.0.53,<0.1"
 ipython = ">=8.4.0,<8.23"
 
+[feature.dl.dependencies]
+cpuonly = ">=2.0,<3"
+torchvision = ">=0.16.1,<0.18"
+pytorch = ">=2.1.2,<2.3"
+torchaudio = ">=2.2.2,<2.3"
+torchdata = ">=0.7.1,<0.8"
+portalocker = ">=2.8.2,<2.9"
+
+
 [feature.dev.tasks]
 pre-commit = "ruff check --fix . && mypy ."
 
 [environments]
 dev = ["dev"]
+dl = ["dl", "dev"]

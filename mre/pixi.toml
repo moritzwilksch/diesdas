@@ -1,0 +1,27 @@
+[project]
+name = "mre"
+version = "0.1.0"
+description = "Add a short description here"
+authors = ["Moritz Wilksch <moritzwilksch@gmail.com>"]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tasks]
+
+[dependencies]
+python = ">=3.12.2,<3.13"
+ruff-lsp = ">=0.0.53,<0.1"
+polars = ">=0.20.25,<0.21"
+pandas = ">=2.2.2,<2.3"
+pyarrow = ">=15.0.2,<15.1"
+ipython = ">=8.22.2,<8.23"
+ipykernel = ">=6.29.3,<6.30"
+
+[feature.lint.dependencies]
+mypy = ">=0.812,<1.11"
+
+[environments]
+lint = ["lint"]
+
+[pypi-dependencies]
+mypackage = {path = ".", editable = true}
